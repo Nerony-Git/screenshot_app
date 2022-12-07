@@ -1,5 +1,7 @@
 import time
 import pyautogui
+import tkinter as tk
+
 
 def screenshot():
     image_name = int(round(time.time() * 1000))
@@ -8,4 +10,24 @@ def screenshot():
     img = pyautogui.screenshot(image_name)
     img.show()
 
-screenshot()
+#screenshot()
+
+root = tk.Tk()
+frame = tk.Frame(root)
+frame.pack()
+
+button = tk.Button(
+    frame, 
+    text= "Take a Screenshot",
+    command= screenshot
+    )
+
+button.pack(side=tk.LEFT)
+close = tk.Button(
+    frame,
+    text= "CLOSE",
+    command= quit
+)
+close.pack(side=tk.LEFT)
+
+root.mainloop()
